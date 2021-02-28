@@ -1,0 +1,10 @@
+project_name: kafka-cli
+
+builds:
+  - binary: kafka-cli
+    flags:
+      - -mod=vendor
+    goos:
+      - linux
+    goarch:
+      - amd64

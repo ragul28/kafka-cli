@@ -2,7 +2,6 @@ package utils
 
 import (
 	"flag"
-	"fmt"
 	"os"
 )
 
@@ -14,6 +13,7 @@ type Confg struct {
 	Password   string
 	Groupid    string
 	Topic      string
+	MsgSize    string
 }
 
 func LoadConfig() *Confg {
@@ -26,6 +26,7 @@ func LoadConfig() *Confg {
 	c.Password = getConfig("KAFKA_PASSWORD", "password", "", "Kafka broker password")
 	c.Groupid = getConfig("KAFKA_GROUPID", "gid", "gid", "Kafka group id")
 	c.Topic = getConfig("KAFKA_TOPIC", "topic", "topic", "Kafka topic name")
+	c.MsgSize = getConfig("KAFKA_MSGSIZE", "msgsize", "10", "Kafka message size")
 
 	return &c
 }
@@ -34,14 +35,11 @@ func getConfig(key, flagStr, defaultVal, flagUsage string) string {
 
 	flagValue := flag.String(flagStr, "", flagUsage)
 
-	fmt.Println(*flagValue, len(*flagValue))
-
 	if len(*flagValue) == 0 {
 		sysEnv := os.Getenv(key)
 		if len(sysEnv) == 0 {
 			return defaultVal
 		}
-		fmt.Println(sysEnv)
 		return sysEnv
 	}
 
