@@ -2,7 +2,6 @@ package utils
 
 import (
 	"flag"
-	"fmt"
 	"os"
 )
 
@@ -36,14 +35,11 @@ func getConfig(key, flagStr, defaultVal, flagUsage string) string {
 
 	flagValue := flag.String(flagStr, "", flagUsage)
 
-	fmt.Println(*flagValue, len(*flagValue))
-
 	if len(*flagValue) == 0 {
 		sysEnv := os.Getenv(key)
 		if len(sysEnv) == 0 {
 			return defaultVal
 		}
-		fmt.Println(sysEnv)
 		return sysEnv
 	}
 
