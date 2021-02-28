@@ -14,6 +14,7 @@ type Confg struct {
 	Password   string
 	Groupid    string
 	Topic      string
+	MsgSize    string
 }
 
 func LoadConfig() *Confg {
@@ -26,6 +27,7 @@ func LoadConfig() *Confg {
 	c.Password = getConfig("KAFKA_PASSWORD", "password", "", "Kafka broker password")
 	c.Groupid = getConfig("KAFKA_GROUPID", "gid", "gid", "Kafka group id")
 	c.Topic = getConfig("KAFKA_TOPIC", "topic", "topic", "Kafka topic name")
+	c.MsgSize = getConfig("KAFKA_MSGSIZE", "msgsize", "10", "Kafka message size")
 
 	return &c
 }
