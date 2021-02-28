@@ -11,22 +11,22 @@ import (
 	"github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
-func Consumer(env *utils.Confg) {
+func Consumer(cfg *utils.Confg) {
 
 	config := &kafka.ConfigMap{
-		"metadata.broker.list":            env.Broker,
-		"security.protocol":               env.Protocol,
-		"sasl.mechanisms":                 env.Mechanisms,
-		"sasl.username":                   env.Username,
-		"sasl.password":                   env.Password,
-		"group.id":                        env.Groupid,
+		"metadata.broker.list":            cfg.Broker,
+		"security.protocol":               cfg.Protocol,
+		"sasl.mechanisms":                 cfg.Mechanisms,
+		"sasl.username":                   cfg.Username,
+		"sasl.password":                   cfg.Password,
+		"group.id":                        cfg.Groupid,
 		"go.events.channel.enable":        true,
 		"go.application.rebalance.enable": true,
 		"default.topic.config":            kafka.ConfigMap{"auto.offset.reset": "earliest"},
 		//"debug":                           "generic,broker,security",
 	}
 
-	topic := env.Topic
+	topic := cfg.Topic
 
 	sigchan := make(chan os.Signal, 1)
 	signal.Notify(sigchan, syscall.SIGINT, syscall.SIGTERM)
