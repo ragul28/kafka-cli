@@ -4,6 +4,8 @@ builds:
   - binary: kafka-cli
     flags:
       - -mod=vendor
+    ldflags:
+      - -s -w
     goos:
       - linux
     goarch:

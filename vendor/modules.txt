@@ -1,4 +1,4 @@
-# github.com/confluentinc/confluent-kafka-go v1.5.2
+# github.com/confluentinc/confluent-kafka-go v1.7.0
 ## explicit
 github.com/confluentinc/confluent-kafka-go/kafka
-github.com/confluentinc/confluent-kafka-go/kafka/librdkafka
+github.com/confluentinc/confluent-kafka-go/kafka/librdkafka_vendor
