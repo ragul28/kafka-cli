@@ -3,7 +3,7 @@ project_name: kafka-cli
 builds:
   - binary: kafka-cli
     flags:
-      - -mod=vendor
+      - -mod=vendor -ldflags="-s -w"
     goos:
       - linux
     goarch:
