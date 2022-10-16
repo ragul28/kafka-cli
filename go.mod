@@ -1,5 +1,5 @@
 module github.com/ragul28/kafka-cli
 
-go 1.16
+go 1.19
 
-require github.com/confluentinc/confluent-kafka-go v1.7.0
+require github.com/confluentinc/confluent-kafka-go v1.9.2
